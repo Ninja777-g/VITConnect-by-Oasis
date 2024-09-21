@@ -2,44 +2,47 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development', // Mode for development builds
-    entry: './src/index.js', // Entry point for JavaScript files
+    mode: 'development', // Set mode to 'development' for development builds
+    entry: './src/index.js', // Entry point for your JavaScript files
     output: {
-        filename: 'bundle.js', // Name of the bundled output file
-        path: path.resolve(__dirname, 'dist'), // Directory for the output file
+        filename: 'bundle.js', // Output bundle name
+        path: path.resolve(__dirname, 'dist'), // Output directory (absolute path)
         clean: true, // Clean the output directory before each build
     },
     module: {
         rules: [
             {
-                test: /\.js$/, // Apply Babel loader for JavaScript files
-                exclude: /node_modules/, // Exclude files from node_modules
+                test: /\.js$/, // Use babel-loader for .js files
+                exclude: /node_modules/, // Exclude node_modules directory
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'], // Use Babel presets for React and modern JS
+                        presets: ['@babel/preset-env', '@babel/preset-react'], // Babel presets for modern JavaScript and React
                     },
                 },
             },
             {
-                test: /\.css$/, // Load CSS files
-                use: ['style-loader', 'css-loader'], // Inject styles into the DOM
+                test: /\.css$/, // Handle CSS files
+                use: ['style-loader', 'css-loader'], // Inject CSS into the DOM
             },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html', // Path to the template HTML file
-            filename: 'index.html', // Name of the output HTML file
+            template: './public/index.html', // Path to the template HTML file (your index.html)
+            filename: 'index.html', // Output HTML file in dist directory
         }),
     ],
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'), // Serve files from the 'dist' directory
         },
-        historyApiFallback: true, // Ensures client-side routing with React Router works
-        port: 3000, // Port number for the local server
-        open: true, // Automatically open the browser when the server starts
-        hot: true, // Enable hot module replacement for development
+        devMiddleware: {
+            publicPath: '/', // Serve the bundle from the root of the server
+        },
+        historyApiFallback: true, // Fallback to index.html for client-side routing
+        port: 3000, // Port for the development server
+        open: true, // Open the browser when the server starts
+        hot: true, // Enable hot module replacement
     },
 };

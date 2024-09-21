@@ -42,7 +42,9 @@ function Forum() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();  // Prevent form from refreshing the page
+    event.preventDefault();
+    const newQuestion = { question, answer: details || "No details provided.", isOpen: false };
+    setFaqItems((prevItems) => [...prevItems, newQuestion]);
     setConfirmationVisible(true);
     setQuestion('');  // Clear the question input after submission
     setDetails('');  // Clear the details textarea after submission

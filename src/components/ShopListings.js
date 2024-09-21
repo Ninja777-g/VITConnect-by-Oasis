@@ -9,6 +9,7 @@ const ShopListings = () => {
       location: 'Near Women\'s Hostel',
       description: 'Medical essentials.',
       price: '300',
+      rating: 3.5,
       hours: '11 AM - 12 PM',
     },
     {
@@ -16,6 +17,7 @@ const ShopListings = () => {
       location: 'Near Foodies',
       description: 'Electronics.',
       price: '5000',
+      rating: 3,
       hours: '12 AM - 8 PM',
     },
     {
@@ -23,6 +25,7 @@ const ShopListings = () => {
       location: 'Men\'s Hostel Gate',
       description: 'Accessories.',
       price: '3000',
+      rating: 2.5,
       hours: '9 AM - 8 PM',
     },
     {
@@ -30,6 +33,7 @@ const ShopListings = () => {
       location: 'Near TT',
       description: 'Groceries & Stationery.',
       price: '500',
+      rating: 5,
       hours: '10 AM - 9 PM',
     },
   ];
@@ -176,6 +180,14 @@ const ShopListings = () => {
         .shop-item.active .details {
           display: block;
           animation: fadeIn 0.5s ease;
+        }
+        .rating {
+          display: flex;
+          margin: 10px 0;
+        }
+        .rating i {
+          color: gold;
+          margin-right: 3px;
         }
         .favorite {
           position: absolute;
