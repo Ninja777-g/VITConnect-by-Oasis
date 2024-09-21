@@ -44,7 +44,7 @@ const CampusMap = () => {
           L.latLng(end[0], end[1])
         ],
         routeWhileDragging: true,
-        createMarker: () => null, // Prevent creating default markers
+        createMarker: () => null,
       }).addTo(map);
     };
 
@@ -70,7 +70,7 @@ const CampusMap = () => {
   }, []);
 
   return (
-    <div className="container" style={{ overflowY: 'auto', maxHeight: '90vh' }}>
+    <div className="container">
       <div className="header">
         <h1>Campus Directions</h1>
         <p>Find your way around the campus with ease</p>
@@ -87,34 +87,31 @@ const CampusMap = () => {
         <button id="resetMap">Reset Map</button>
       </div>
 
-      <div id="map" style={{ height: '70vh', width: '100%', borderRadius: '12px' }}></div>
+      <div id="map" style={{ height: '50vh', width: '100%', borderRadius: '12px' }}></div>
+
       <style>
         {`
           body {
             font-family: 'Arial', sans-serif;
-            background-color: black; /* Set the entire background to black */
+            background-color: #6B6E70; /* Grey background */
             margin: 0;
             padding: 20px;
-            overflow: hidden;
           }
           .container {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            background-color: black;
+            background-color: #6B6E70; /* Grey background */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            overflow-y: auto; /* Enable scrolling */
-            max-height: 90vh; /* Limit height */
           }
           .header {
-            background-color: #6B6E70;
+            background-color: black; /* Black background for the top part */
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             animation: fadeIn 0.5s ease-in;
-            position: relative;
           }
           .header h1 {
             color: #86C232;
@@ -165,17 +162,11 @@ const CampusMap = () => {
           button:hover {
             background-color: #61892F;
           }
-          footer {
-            margin-top: 40px;
-            color: #ffffff;
-            font-size: 0.9rem;
-            text-align: center;
+          .leaflet-popup-content {
+            color: black !important;
           }
-          .leaflet-popup-content { /* Custom styling for popup text */
-            color: black !important; /* Change font color to black */
-          }
-          .leaflet-routing-container { /* Custom styling for routing container */
-            color: black !important; /* Ensure routing text is also black */
+          .leaflet-routing-container {
+            color: black !important;
           }
           @keyframes fadeIn {
             from { opacity: 0; }

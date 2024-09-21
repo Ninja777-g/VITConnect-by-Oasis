@@ -94,6 +94,24 @@ const ShopListings = () => {
       rating: 4,
       mobile: '789-654-3210',
     },
+    {
+      name: 'Cycle Repair Shop',
+      location: 'Near Gate 3',
+      description: 'Cycle repairs and accessories.',
+      hours: '9 AM - 8 PM',
+      price: '150',
+      rating: 4,
+      mobile: '888-888-8888',
+    },
+    {
+      name: 'Barber Shop',
+      location: 'Behind Men\'s Hostel Block B',
+      description: 'Haircuts and grooming.',
+      hours: '8 AM - 9 PM',
+      price: '50',
+      rating: 4.5,
+      mobile: '555-555-5555',
+    },
   ];
 
   const [displayedShops, setDisplayedShops] = React.useState(shops);
@@ -233,24 +251,19 @@ const ShopListings = () => {
         }
         .shop-item .price {
           font-weight: bold;
-          color: #eef7f0;
-        }
-        .shop-item .details {
-          display: block;
-          margin-top: 10px;
-          color: #f4f4f9; /* Light text */
-        }
-        .mobile {
-          margin-top: 10px;
-          color: #f4f4f9; /* Light text */
-        }
-        .rating {
-          display: flex;
-          margin: 10px 0;
+          color: #eef7f9;
         }
         .rating i {
-          color: gold;
-          margin-right: 3px;
+          color: #00ffc6; /* Updated rating color */
+        }
+        .details, .mobile {
+          font-size: 14px;
+          color: #f7f7f7;
+          margin-top: 10px;
+          display: none;
+        }
+        .shop-item.active .details, .shop-item.active .mobile {
+          display: block;
         }
       `}</style>
     </div>

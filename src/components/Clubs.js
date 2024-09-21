@@ -132,8 +132,8 @@ const Clubs = () => {
                         font-size: 0.9rem;
                     }
                     input[type="text"], input[type="email"], select {
-                        width: 100%;
-                        padding: 12px;
+                        width: 100%; /* Make all fields equal width */
+                        padding: 12px; /* Consistent padding */
                         margin-top: 5px;
                         border: 1px solid #ccc;
                         border-radius: 8px;
