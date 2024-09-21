@@ -8,93 +8,101 @@ const ShopListings = () => {
       name: 'Medical Store',
       location: 'Near Women\'s Hostel',
       description: 'Medical essentials.',
+      hours: '11 AM - 12 PM',
       price: '300',
       rating: 3.5,
-      hours: '11 AM - 12 PM',
+      mobile: '123-456-7890', // Example mobile number
     },
     {
       name: 'Samsung Store',
       location: 'Near Foodies',
       description: 'Electronics.',
+      hours: '12 AM - 8 PM',
       price: '5000',
       rating: 3,
-      hours: '12 AM - 8 PM',
+      mobile: '098-765-4321',
     },
     {
       name: 'Optician',
       location: 'Men\'s Hostel Gate',
       description: 'Accessories.',
+      hours: '9 AM - 8 PM',
       price: '3000',
       rating: 2.5,
-      hours: '9 AM - 8 PM',
+      mobile: '987-654-3210',
     },
     {
       name: 'Shri Balaji Store',
       location: 'Near TT',
       description: 'Groceries & Stationery.',
+      hours: '10 AM - 9 PM',
       price: '500',
       rating: 5,
-      hours: '10 AM - 9 PM',
+      mobile: '123-456-7891',
     },
     {
-      name: 'Enzo ',
+      name: 'Enzo',
       location: 'Near A block Mens hostel',
-      description: 'Groceries .',
+      description: 'Groceries.',
+      hours: '6 AM - 9 PM',
       price: '200',
       rating: 4,
-      hours: '6 AM - 9 PM',
+      mobile: '321-654-9870',
     },
     {
       name: 'Lassi Shop',
       location: 'Near SMV',
-      description: 'lassi,shakes etc.',
+      description: 'Lassi, shakes, etc.',
+      hours: '10 AM - 9 PM',
       price: '100',
       rating: 5,
-      hours: '10 AM - 9 PM',
+      mobile: '654-321-0987',
     },
     {
-      name: 'All mart shop',
+      name: 'All Mart Shop',
       location: 'Near Gate 2',
       description: 'Groceries & Stationery.',
+      hours: '10 AM - 9 PM',
       price: '500',
       rating: 5,
-      hours: '10 AM - 9 PM',
+      mobile: '789-012-3456',
     },
     {
-      name: 'Xerox shop',
+      name: 'Xerox Shop',
       location: 'Near Anna Auditorium',
       description: 'Groceries & Stationery.',
+      hours: '10 AM - 9 PM',
       price: '500',
       rating: 2,
-      hours: '10 AM - 9 PM',
+      mobile: '456-789-0123',
     },
     {
       name: 'Darling Cafe',
       location: 'Near TT',
       description: 'Food.',
+      hours: '10 AM - 9 PM',
       price: '500',
       rating: 4.5,
-      hours: '10 AM - 9 PM',
+      mobile: '012-345-6789',
     },
     {
       name: 'Darling Restaurant',
       location: 'Near TT',
       description: 'Main Course.',
+      hours: '10 AM - 9 PM',
       price: '250',
       rating: 4,
-      hours: '10 AM - 9 PM',
+      mobile: '789-654-3210',
     },
   ];
+
   const [displayedShops, setDisplayedShops] = React.useState(shops);
+  const [selectedShop, setSelectedShop] = React.useState(null);
 
   const handleToggleDetails = (index) => {
     const items = document.querySelectorAll('.shop-item');
     items[index].classList.toggle('active');
-  };
-
-  const handleFavoriteToggle = (event) => {
-    event.stopPropagation();
-    event.currentTarget.classList.toggle('liked');
+    setSelectedShop(shops[index].mobile);
   };
 
   const handleSearch = (event) => {
@@ -124,7 +132,13 @@ const ShopListings = () => {
       <h1>Shop Listings</h1>
 
       <div className="search-bar">
-        <input type="text" id="search" placeholder="Search for shops..." onChange={handleSearch} />
+        <input 
+          type="text" 
+          id="search" 
+          placeholder="Search for shops..." 
+          onChange={handleSearch} 
+          autoComplete="off" // Disable autocomplete
+        />
         <select id="sort" className="sort-select" onChange={handleSort}>
           <option value="default">Sort by</option>
           <option value="price-low-high">Price: Low to High</option>
@@ -135,17 +149,18 @@ const ShopListings = () => {
       <div id="shop-list">
         {displayedShops.map((shop, index) => (
           <div key={index} className="shop-item" data-price={shop.price} onClick={() => handleToggleDetails(index)}>
-            <i className="favorite far fa-heart" onClick={handleFavoriteToggle}></i>
             <h2>{shop.name}</h2>
             <p>Location: {shop.location}</p>
             <p>Description: {shop.description}</p>
             <p className="price">Avg. Price: ₹{shop.price}</p>
             <div className="rating">
-              {[...Array(5)].map((_, i) => (
-                <i key={i} className={`fas fa-star${i < Math.floor(shop.rating) ? '' : (i === Math.floor(shop.rating) ? '-half-alt' : '-o')}`}></i>
-              ))}
+              {[...Array(5)].map((_, i) => {
+                const starClass = i < Math.floor(shop.rating) ? 'fas fa-star' : (i < shop.rating ? 'fas fa-star-half-alt' : 'far fa-star');
+                return <i key={i} className={starClass}></i>;
+              })}
             </div>
             <div className="details">Opening Hours: {shop.hours}</div>
+            {selectedShop === shop.mobile && <div className="mobile">Mobile: {shop.mobile}</div>}
           </div>
         ))}
       </div>
@@ -221,13 +236,13 @@ const ShopListings = () => {
           color: #eef7f0;
         }
         .shop-item .details {
-          display: none;
+          display: block;
           margin-top: 10px;
           color: #f4f4f9; /* Light text */
         }
-        .shop-item.active .details {
-          display: block;
-          animation: fadeIn 0.5s ease;
+        .mobile {
+          margin-top: 10px;
+          color: #f4f4f9; /* Light text */
         }
         .rating {
           display: flex;
@@ -236,20 +251,6 @@ const ShopListings = () => {
         .rating i {
           color: gold;
           margin-right: 3px;
-        }
-        .favorite {
-          position: absolute;
-          top: 10px;
-          right: 15px;
-          cursor: pointer;
-          font-size: 24px;
-        }
-        .favorite.liked {
-          color: red;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
         }
       `}</style>
     </div>

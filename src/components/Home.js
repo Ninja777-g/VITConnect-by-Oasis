@@ -6,7 +6,7 @@ function Home() {
       <div style={styles.introduction}>
         <h2 style={styles.introTitle}>Your Gateway to Campus Life</h2>
         <p style={styles.introText}>
-          VIT Connect is designed to streamline your college experience by providing easy access to essential services like maps, mess menus, shop listings, FAQs, and events. Join us as we enhance your journey at VIT!
+          VIT Connect is designed to streamline your college experience by providing easy access to essential services like maps, mess menus, shop listings, FAQs, and events. Our platform serves as a one-stop solution for all your campus needs, ensuring that you can find the information you need quickly and easily. With features tailored to enhance your academic journey and social interactions, we aim to foster a vibrant campus community where every student can thrive. Join us as we enhance your journey at VIT!
         </p>
         <button style={styles.ctaButton}>Explore Now</button>
       </div>
@@ -41,7 +41,7 @@ const styles = {
     maxWidth: '900px',
     marginTop: '60px',
     textAlign: 'center',
-    fontSize: '1.5em',
+    fontSize: '1.3em', // Adjusted font size
     lineHeight: 1.6,
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
     animation: 'slideIn 0.7s ease-out',
@@ -49,18 +49,18 @@ const styles = {
   introTitle: {
     color: '#86C232', // Neon green for title
     fontWeight: '700',
-    fontSize: '2.5em',
+    fontSize: '2.2em', // Adjusted font size
     letterSpacing: '1px',
     marginBottom: '20px',
   },
   introText: {
-    fontSize: '1.2em',
+    fontSize: '1.1em', // Adjusted font size
     lineHeight: '1.8',
     marginBottom: '30px',
   },
   ctaButton: {
     padding: '10px 30px',
-    fontSize: '1.1em',
+    fontSize: '1em', // Adjusted font size
     color: '#222629', // Dark text
     backgroundColor: '#86C232', // Neon green for button
     border: 'none',

@@ -37,7 +37,6 @@ const Events = () => {
                 time: '9:00 AM - 9:00 PM',
                 club: 'Developer\'s Guild'
             },
-
             {
                 title: 'Sports Meet',
                 startDate: '2024-11-05',
@@ -188,14 +187,14 @@ const Events = () => {
 
             {modalEvent && (
                 <div className="modal" onClick={closeModal}>
-                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()} style={{ color: 'black' }}>
                         <span className="close" onClick={closeModal}>&times;</span>
                         <h3>{modalEvent.title}</h3>
-                        <p>{modalEvent.description}</p>
-                        <p>Location: {modalEvent.location}</p>
-                        <p>Time: {modalEvent.time}</p>
-                        <p>Club: {modalEvent.club}</p>
-                        <p>Date: {formatEventDate(modalEvent.startDate, modalEvent.endDate)}</p>
+                        <p><strong>Description:</strong> {modalEvent.description}</p>
+                        <p><strong>Location:</strong> {modalEvent.location}</p>
+                        <p><strong>Time:</strong> {modalEvent.time}</p>
+                        <p><strong>Club:</strong> {modalEvent.club}</p>
+                        <p><strong>Date:</strong> {formatEventDate(modalEvent.startDate, modalEvent.endDate)}</p>
                     </div>
                 </div>
             )}
@@ -245,8 +244,8 @@ const Events = () => {
                     border-radius: 5px;
                     border: 1px solid #ccc;
                     width: 200px;
-                    background-color: #1a1a2e; /* Darker input background */
-                    color: #e2e8f0; /* Light text */
+                    background-color: #1a1a1a; /* Dark input background */
+                    color: white; /* White text color */
                 }
 
                 .date-filters {
@@ -254,81 +253,81 @@ const Events = () => {
                     align-items: center;
                 }
 
-                .date-filters label {
-                    margin-right: 5px;
-                    color: #e2e8f0; /* Light text */
-                }
-
-                input[type="date"] {
-                    margin: 0 10px;
-                    background-color: #1a1a2e; /* Darker input background */
-                    color: #e2e8f0; /* Light text */
+                .date-filters input {
+                    margin: 0 5px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    background-color: #1a1a1a; /* Dark input background */
+                    color: white; /* White text color */
                 }
 
                 button {
-                    background-color: #86C232; /* Updated Button Background */
-                    color: #0d0d0d; /* Dark button text */
+                    margin-left: 10px;
+                    padding: 10px 15px;
                     border: none;
-                    padding: 10px 20px;
-                    font-size: 16px;
                     border-radius: 5px;
+                    background-color: #86C232; /* Updated Button Color */
+                    color: white;
                     cursor: pointer;
-                    transition: background-color 0.3s ease;
-                    margin-left: 5px;
                 }
 
                 button:hover {
-                    background-color: #00a8ff; /* Neon blue on hover */
+                    background-color: #6ba629; /* Darker green on hover */
+                }
+
+                .events-container {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
                 }
 
                 .event-card {
-                    background-color: #232526; /* Dark metallic */
-                    border-radius: 12px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    overflow: hidden;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    cursor: pointer;
-                    margin: 10px 0;
+                    background-color: #222629; /* Dark card background */
                     padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                    cursor: pointer;
+                    transition: transform 0.2s;
                 }
 
                 .event-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+                    transform: scale(1.05);
+                }
+
+                .event-title {
+                    color: #86C232; /* Title color */
+                    margin: 0;
                 }
 
                 .modal {
-                    display: flex; /* Show modal */
-                    position: fixed; /* Stay in place */
-                    z-index: 1; /* Sit on top */
-                    left: 0;
+                    position: fixed;
                     top: 0;
-                    width: 100%; /* Full width */
-                    height: 100%; /* Full height */
-                    overflow: auto; /* Enable scroll if needed */
-                    background-color: rgb(0,0,0); /* Fallback color */
-                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
                 }
 
                 .modal-content {
-                    background-color: #fefefe;
-                    margin: 15% auto; /* 15% from the top and centered */
+                    background-color: #474B4F; /* Dark modal background */
                     padding: 20px;
-                    border: 1px solid #888;
-                    width: 80%; /* Could be more or less, depending on screen size */
+                    border-radius: 10px;
+                    position: relative;
+                    width: 80%;
+                    max-width: 600px;
+                    color: black; /* Black text in modal */
                 }
 
                 .close {
-                    color: #aaa;
-                    float: right;
-                    font-size: 28px;
-                    font-weight: bold;
-                }
-
-                .close:hover,
-                .close:focus {
-                    color: black;
-                    text-decoration: none;
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    font-size: 24px;
                     cursor: pointer;
                 }
             `}</style>

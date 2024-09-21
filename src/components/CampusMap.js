@@ -92,7 +92,7 @@ const CampusMap = () => {
         {`
           body {
             font-family: 'Arial', sans-serif;
-            background-color: #222629;
+            background-color: black; /* Set the entire background to black */
             margin: 0;
             padding: 20px;
             overflow: hidden;
@@ -101,7 +101,7 @@ const CampusMap = () => {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            background-color: #474B4F;
+            background-color: black;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             overflow-y: auto; /* Enable scrolling */

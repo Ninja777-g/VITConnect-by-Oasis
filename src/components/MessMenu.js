@@ -60,7 +60,7 @@ function MessMenu() {
         );
       }
     }
-    return <p style={styles.message}>Please select a menu and a day to view the items.</p>;
+    return <p style={styles.message}>Please select a day to view the items.</p>;
   };
 
   return (
@@ -106,7 +106,7 @@ function MessMenu() {
         <div style={styles.popup}>
           <div style={styles.popupContent}>
             <h2 style={styles.popupHeader}>Menu Selected</h2>
-            <p>{menuType} menu selected!</p>
+            <p>{menuType} selected!</p>
             <div style={styles.popupMenu}>
               {displayMenu()}
             </div>

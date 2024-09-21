@@ -92,14 +92,16 @@ function Forum() {
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Enter your question"
             required
+            style={{ color: 'black' }} // Font color for question input
           />
           <textarea
             value={details}
             onChange={(e) => setDetails(e.target.value)}
             placeholder="Provide more details (optional)"
             rows="4"
+            style={{ color: 'black' }} // Font color for details textarea
           ></textarea>
-          <button type="submit">Submit Question</button>
+          <button type="submit" style={{ backgroundColor: 'black', color: '#00ffc6' }}>Submit Question</button>
         </form>
 
         {confirmationVisible && (
@@ -178,8 +180,8 @@ function Forum() {
             color: #e2e8f0; /* Light text */
           }
           .question-form button {
-            background-color: #00ffc6; /* Neon aqua */
-            color: #0d0d0d; /* Dark text */
+            background-color: black; /* Changed to black */
+            color: #00ffc6; /* Aqua color for text */
             border: none;
             padding: 10px 20px;
             font-size: 16px;

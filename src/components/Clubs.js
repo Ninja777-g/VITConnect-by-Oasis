@@ -100,7 +100,7 @@ const Clubs = () => {
                     {Object.keys(clubDescriptions).map((clubName) => (
                         <tr key={clubName}>
                             <td>{clubName}</td>
-                            <td className={openClubs.includes(clubName) ? 'open' : 'closed'}>
+                            <td style={{ fontWeight: 'bold', color: openClubs.includes(clubName) ? 'red' : 'green' }}>
                                 {openClubs.includes(clubName) ? 'Open' : 'Closed'}
                             </td>
                         </tr>
@@ -202,14 +202,6 @@ const Clubs = () => {
                         padding: 10px;
                         text-align: center;
                         color: #f4f4f9; /* Light text */
-                    }
-                    .open {
-                        color: #00ffc6; /* Neon aqua */
-                        font-weight: bold;
-                    }
-                    .closed {
-                        color: #ff4f4f; /* Red for closed status */
-                        font-weight: bold;
                     }
                 `}
             </style>
