@@ -36,7 +36,56 @@ const ShopListings = () => {
       rating: 5,
       hours: '10 AM - 9 PM',
     },
+    {
+      name: 'Enzo ',
+      location: 'Near A block Mens hostel',
+      description: 'Groceries .',
+      price: '200',
+      rating: 4,
+      hours: '6 AM - 9 PM',
+    },
+    {
+      name: 'Lassi Shop',
+      location: 'Near SMV',
+      description: 'lassi,shakes etc.',
+      price: '100',
+      rating: 5,
+      hours: '10 AM - 9 PM',
+    },
+    {
+      name: 'All mart shop',
+      location: 'Near Gate 2',
+      description: 'Groceries & Stationery.',
+      price: '500',
+      rating: 5,
+      hours: '10 AM - 9 PM',
+    },
+    {
+      name: 'Xerox shop',
+      location: 'Near Anna Auditorium',
+      description: 'Groceries & Stationery.',
+      price: '500',
+      rating: 2,
+      hours: '10 AM - 9 PM',
+    },
+    {
+      name: 'Darling Cafe',
+      location: 'Near TT',
+      description: 'Food.',
+      price: '500',
+      rating: 4.5,
+      hours: '10 AM - 9 PM',
+    },
+    {
+      name: 'Darling Restaurant',
+      location: 'Near TT',
+      description: 'Main Course.',
+      price: '250',
+      rating: 4,
+      hours: '10 AM - 9 PM',
+    },
   ];
+  const [displayedShops, setDisplayedShops] = React.useState(shops);
 
   const handleToggleDetails = (index) => {
     const items = document.querySelectorAll('.shop-item');
@@ -69,8 +118,6 @@ const ShopListings = () => {
 
     setDisplayedShops(sortedShops);
   };
-
-  const [displayedShops, setDisplayedShops] = React.useState(shops);
 
   return (
     <div className="container">
@@ -119,10 +166,16 @@ const ShopListings = () => {
           border-radius: 8px;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
-        h1, h2 {
+        h1 {
           text-align: center;
-          color: #00ffc6; /* Neon aqua */
+          color: #86C232; /* Updated Title Color */
           margin-bottom: 20px;
+        }
+        h2 {
+          text-align: center;
+          color: #86C232; /* Updated Shop Title Color */
+          margin: 0 0 10px;
+          transition: color 0.3s ease;
         }
         .search-bar {
           display: flex;
@@ -160,13 +213,8 @@ const ShopListings = () => {
           color: white;
           transform: scale(1.02);
         }
-        .shop-item h2 {
-          margin: 0 0 10px;
-          color: #00ffc6; /* Neon aqua */
-          transition: color 0.3s ease;
-        }
         .shop-item:hover h2 {
-          color: white;
+          color: white; /* Keep h2 white on hover */
         }
         .shop-item .price {
           font-weight: bold;

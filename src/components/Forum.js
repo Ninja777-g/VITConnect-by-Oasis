@@ -4,7 +4,7 @@ function Forum() {
   const [faqItems, setFaqItems] = useState([
     {
       question: "What is OD?",
-      answer: "OD is On-Duty. It is given to if you attend an event to make sure your attendance is not affected.",
+      answer: "OD is On-Duty. It is given to ensure your attendance is not affected.",
       isOpen: false,
     },
     {
@@ -46,8 +46,8 @@ function Forum() {
     const newQuestion = { question, answer: details || "No details provided.", isOpen: false };
     setFaqItems((prevItems) => [...prevItems, newQuestion]);
     setConfirmationVisible(true);
-    setQuestion('');  // Clear the question input after submission
-    setDetails('');  // Clear the details textarea after submission
+    setQuestion('');
+    setDetails('');
   };
 
   useEffect(() => {
@@ -64,8 +64,8 @@ function Forum() {
           <div className="faq-item" key={index}>
             <h3
               className={`faq-question ${item.isOpen ? 'active' : ''}`}
-              onClick={() => toggleAnswer(index)}  // Toggle the FAQ answer
-              style={{ cursor: 'pointer' }}  // Ensure pointer style on hover
+              onClick={() => toggleAnswer(index)}
+              style={{ cursor: 'pointer', color: '#86C232' }} // Title color
             >
               {item.question}
             </h3>
@@ -84,7 +84,7 @@ function Forum() {
       </div>
 
       <div className="question-form">
-        <h2>Submit Your Question</h2>
+        <h2 style={{ color: '#86C232' }}>Submit Your Question</h2> {/* Title color */}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -122,11 +122,11 @@ function Forum() {
           }
           h1, h2 {
             text-align: center;
-            color: #00ffc6; /* Neon aqua */
+            color: #86C232; /* Title color */
             margin-bottom: 20px;
           }
           .faq-section {
-            background-color: #232526; /* Dark metallic */
+            background-color: #222629; /* Dark metallic */
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -135,8 +135,8 @@ function Forum() {
             margin-bottom: 15px;
           }
           .faq-question {
-            background-color: #00a8ff; /* Neon blue */
-            color: white;
+            background-color: #474B4F; /* Dark gray */
+            color: #f4f4f9; /* Light text */
             padding: 15px;
             font-size: 18px;
             border-radius: 5px;
@@ -144,7 +144,7 @@ function Forum() {
             transition: background-color 0.3s ease;
           }
           .faq-question:hover {
-            background-color: #084a92; /* Darker blue on hover */
+            background-color: #00a8ff; /* Neon blue on hover */
           }
           .faq-answer {
             max-height: 0;
@@ -157,7 +157,7 @@ function Forum() {
           .faq-answer p {
             padding: 15px;
             margin: 0;
-            color: #f4f4f9; /* Light text */
+            color: #e2e8f0; /* Light text */
             font-size: 16px;
           }
           .question-form {
@@ -174,7 +174,7 @@ function Forum() {
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
-            background-color: #0f0f1f; /* Darker input background */
+            background-color: #474B4F; /* Input background */
             color: #e2e8f0; /* Light text */
           }
           .question-form button {

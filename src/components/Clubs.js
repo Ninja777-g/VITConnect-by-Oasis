@@ -51,7 +51,7 @@ const Clubs = () => {
 
     return (
         <div className="container">
-            <h1>Join a Club</h1>
+            <h1 style={{ color: '#86C232' }}>Join a Club</h1>
             <p>Fill out the form to register for your preferred club. Choose wisely!</p>
 
             <form id="registrationForm">
@@ -83,7 +83,7 @@ const Clubs = () => {
 
             <div className="popup" style={{ display: popupVisible ? 'flex' : 'none' }}>
                 <div className="popup-content">
-                    <h2>Registration Status</h2>
+                    <h2 style={{ color: '#86C232' }}>Registration Status</h2>
                     <p>{popupMessage}</p>
                     <button className="close-button" onClick={closePopup}>Close</button>
                 </div>
@@ -92,8 +92,8 @@ const Clubs = () => {
             <table className="registration-table">
                 <thead>
                     <tr>
-                        <th>Club Name</th>
-                        <th>Registration Status</th>
+                        <th style={{ color: '#86C232' }}>Club Name</th>
+                        <th style={{ color: '#86C232' }}>Registration Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,13 +115,13 @@ const Clubs = () => {
                         margin: 0 auto;
                         padding: 20px;
                         font-family: 'Poppins', sans-serif;
-                        background-color: #0d0d0d; /* Dark background */
+                        background-color: #222629; /* Dark background */
                         border-radius: 8px;
                         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
                     }
                     h1, h2 {
                         text-align: center;
-                        color: #00ffc6; /* Neon aqua */
+                        color: #86C232; /* Neon green */
                         margin-bottom: 20px;
                     }
                     label {
@@ -137,7 +137,7 @@ const Clubs = () => {
                         margin-top: 5px;
                         border: 1px solid #ccc;
                         border-radius: 8px;
-                        background-color: #1a1a2e; /* Consistent dark background */
+                        background-color: #474B4F; /* Darker background */
                         color: #e2e8f0; /* Light text */
                     }
                     input[type="text"]:focus, input[type="email"]:focus, select:focus {
@@ -147,7 +147,7 @@ const Clubs = () => {
                     .button {
                         margin-top: 25px;
                         padding: 15px;
-                        background-color: #00ffc6; /* Neon aqua */
+                        background-color: #86C232; /* Neon green */
                         color: #0d0d0d; /* Dark text */
                         border: none;
                         border-radius: 8px;
@@ -172,7 +172,7 @@ const Clubs = () => {
                         align-items: center;
                     }
                     .popup-content {
-                        background: #22223b; /* Slightly lighter background */
+                        background: #474B4F; /* Darker background */
                         padding: 30px;
                         border-radius: 12px;
                         text-align: center;
@@ -182,7 +182,7 @@ const Clubs = () => {
                     .close-button {
                         margin-top: 15px;
                         padding: 10px 20px;
-                        background-color: #00ffc6; /* Neon aqua */
+                        background-color: #86C232; /* Neon green */
                         color: #0d0d0d;
                         border: none;
                         border-radius: 8px;

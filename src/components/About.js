@@ -12,7 +12,7 @@ const About = () => {
           <h2>Who We Are</h2>
           <p>
             Welcome to VIT Connect! We are a team of passionate individuals committed to providing the best services to VIT students by centralizing vital information into a single platform. Since our founding in 2024, we've been dedicated to creating solutions that help students navigate their day-to-day campus life more efficiently.
-        </p>
+          </p>
         </section>
 
         <section className="mission">
@@ -43,6 +43,7 @@ const About = () => {
           </div>
         </section>
       </div>
+
       <style>{`
         /* Global Styling */
         body {
@@ -66,7 +67,7 @@ const About = () => {
 
         h1, h2 {
           text-align: center;
-          color: #00ffc6; /* Neon aqua */
+          color: #86C232; /* Updated to #86C232 */
           margin-bottom: 20px;
         }
 
@@ -84,7 +85,7 @@ const About = () => {
         }
 
         .team h3 {
-          color: #00ffc6; /* Neon aqua */
+          color: #86C232; /* Updated to #86C232 */
           margin-bottom: 20px;
         }
 
@@ -112,7 +113,7 @@ const About = () => {
         }
 
         .team-member h4 {
-          color: #00ffc6; /* Neon aqua */
+          color: #86C232; /* Updated to #86C232 */
         }
 
         footer {

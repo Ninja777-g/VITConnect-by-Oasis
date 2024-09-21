@@ -1,23 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function Home() {
-  const images = [
-    "https://www.colive.com/blog/wp-content/uploads/2018/04/wdwf.jpg",
-    "https://vit.ac.in/system/files/header_banner/program-offered.jpg",
-    "https://chennai.vit.ac.in/wp-content/uploads/2020/07/AB1-7th-Floor-Nethaji-Auditorium-3.jpg",
-    "https://vit.ac.in/system/files/vit-nirf-rank-2024-header.jpg",
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
-
-    return () => clearInterval(intervalId); // Cleanup on component unmount
-  }, [images.length]);
-
   return (
     <div style={styles.container}>
       <div style={styles.introduction}>
@@ -25,82 +8,96 @@ function Home() {
         <p style={styles.introText}>
           VIT Connect is designed to streamline your college experience by providing easy access to essential services like maps, mess menus, shop listings, FAQs, and events. Join us as we enhance your journey at VIT!
         </p>
+        <button style={styles.ctaButton}>Explore Now</button>
       </div>
 
       <div style={styles.hashtag}>#ConnectToVIT</div>
-
-      <div style={styles.gallery}>
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Campus Image ${index + 1}`}
-            style={{
-              ...styles.galleryImage,
-              display: currentIndex === index ? 'block' : 'none', // Show only the current image
-            }}
-          />
-        ))}
-      </div>
     </div>
   );
 }
 
-// Styles as a JavaScript object
 const styles = {
   container: {
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: "'Poppins', sans-serif",
     margin: 0,
     padding: 0,
-    backgroundImage: "url('https://example.com/background.jpg'), url('https://example.com/overlay.png')", // Replace with your images
-    backgroundSize: 'cover, contain',
-    backgroundPosition: 'center, center',
-    color: '#fff',
+    backgroundColor: '#222629', // Dark background
+    color: '#e2e8f0', // Light text
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh',
+    minHeight: '100vh',
     textAlign: 'center',
+    padding: '20px',
+    animation: 'fadeIn 1.5s ease-in-out',
   },
   introduction: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    color: '#333',
-    padding: '40px',
-    borderRadius: '20px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-    maxWidth: '600px',
-    marginTop: '80px',
-    transition: 'transform 0.3s, box-shadow 0.3s',
+    backgroundColor: '#474B4F', // Darker background with slight transparency
+    color: '#e2e8f0', // Light text
+    padding: '30px 40px', // Adjusted padding
+    borderRadius: '30px',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
+    maxWidth: '900px',
+    marginTop: '60px',
+    textAlign: 'center',
+    fontSize: '1.5em',
+    lineHeight: 1.6,
+    transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+    animation: 'slideIn 0.7s ease-out',
   },
   introTitle: {
-    color: '#007BFF',
+    color: '#86C232', // Neon green for title
+    fontWeight: '700',
+    fontSize: '2.5em',
+    letterSpacing: '1px',
     marginBottom: '20px',
-    fontSize: '2em',
   },
   introText: {
-    lineHeight: 1.6,
     fontSize: '1.2em',
+    lineHeight: '1.8',
+    marginBottom: '30px',
+  },
+  ctaButton: {
+    padding: '10px 30px',
+    fontSize: '1.1em',
+    color: '#222629', // Dark text
+    backgroundColor: '#86C232', // Neon green for button
+    border: 'none',
+    borderRadius: '25px',
+    cursor: 'pointer',
+    transition: 'background 0.3s ease, transform 0.3s ease',
+    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
+    fontWeight: '600',
+  },
+  ctaButtonHover: {
+    backgroundColor: '#61892F', // Darker green on hover
+    transform: 'scale(1.05)',
   },
   hashtag: {
-    marginTop: '20px',
-    fontSize: '1.5em',
-    color: '#007BFF',
+    marginTop: '50px',
+    fontSize: '2em',
+    color: '#86C232', // Neon green
     fontWeight: 'bold',
-    textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)',
+    letterSpacing: '2px',
+    textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)',
+    animation: 'fadeIn 1.8s ease-in-out',
   },
-  gallery: {
-    display: 'flex',
-    overflow: 'hidden',
-    maxWidth: '1000px',
-    marginTop: '40px',
-    position: 'relative',
+  '@keyframes fadeIn': {
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
   },
-  galleryImage: {
-    width: '100%',
-    borderRadius: '10px',
-    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-    transition: 'transform 0.3s',
+  '@keyframes slideIn': {
+    from: {
+      transform: 'translateY(-50px)',
+    },
+    to: {
+      transform: 'translateY(0)',
+    },
   },
 };
 

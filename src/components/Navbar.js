@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   const styles = {
     navbar: {
-      backgroundColor: 'rgba(10, 116, 218, 0.9)',
+      backgroundColor: '#222629', // Dark background
       padding: '15px 30px',
       boxShadow: '0 4px 10px rgba(0, 0, 0, 0.5)',
       position: 'sticky',
@@ -27,7 +27,7 @@ function Navbar() {
       margin: 0,
     },
     navbarLink: {
-      color: '#ffffff',
+      color: '#e2e8f0', // Light text
       textDecoration: 'none',
       fontSize: '1.2em',
       padding: '10px 20px',
@@ -38,8 +38,8 @@ function Navbar() {
       backgroundColor: 'transparent',
     },
     navbarLinkHover: {
-      backgroundColor: 'rgba(0, 168, 255, 0.5)',
-      boxShadow: '0 0 15px rgba(10, 116, 218, 0.7)',
+      backgroundColor: '#86C232', // Neon green
+      boxShadow: '0 0 15px rgba(135, 198, 50, 0.7)', // Shadow to match hover color
       transform: 'translateY(-2px)',
     },
   };

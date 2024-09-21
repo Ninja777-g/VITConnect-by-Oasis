@@ -36,6 +36,52 @@ const Events = () => {
                 location: 'Tech Park',
                 time: '9:00 AM - 9:00 PM',
                 club: 'Developer\'s Guild'
+            },
+
+            {
+                title: 'Sports Meet',
+                startDate: '2024-11-05',
+                endDate: '2024-11-07',
+                description: 'Annual sports meet with various events like football, cricket, and athletics.',
+                location: 'Sports Complex',
+                time: '8:00 AM - 6:00 PM',
+                club: 'Sports Club'
+            },
+            {
+                title: 'Freshers\' Party',
+                startDate: '2024-11-15',
+                endDate: '2024-11-15',
+                description: 'A welcome party for the new batch of students with music, dance, and fun activities.',
+                location: 'Auditorium',
+                time: '7:00 PM - 11:00 PM',
+                club: 'Student Council'
+            },
+            {
+                title: 'Alumni Meet',
+                startDate: '2024-12-10',
+                endDate: '2024-12-10',
+                description: 'A reunion of former students to share memories and experiences.',
+                location: 'Auditorium',
+                time: '6:00 PM - 9:00 PM',
+                club: 'Alumni Association'
+            },
+            {
+                title: 'Tech Expo',
+                startDate: '2025-01-05',
+                endDate: '2025-01-07',
+                description: 'An exhibition of the latest technology trends and innovations.',
+                location: 'Tech Park',
+                time: '10:00 AM - 6:00 PM',
+                club: 'Tech Club'
+            },
+            {
+                title: 'Auction Action',
+                startDate: '2025-02-15',
+                endDate: '2025-02-15',  
+                description: 'A charity event to raise funds for social causes through auctions and donations.',
+                location: 'Auditorium',
+                time: '4:00 PM - 8:00 PM',
+                club: 'Social Welfare Club'
             }
         ];
         setEvents(initialEvents);
@@ -179,7 +225,7 @@ const Events = () => {
                 }
 
                 h1 {
-                    color: #00ffc6; /* Neon aqua */
+                    color: #86C232; /* Updated Title Color */
                     margin-bottom: 20px;
                 }
 
@@ -220,7 +266,7 @@ const Events = () => {
                 }
 
                 button {
-                    background-color: #00ffc6; /* Neon aqua */
+                    background-color: #86C232; /* Updated Button Background */
                     color: #0d0d0d; /* Dark button text */
                     border: none;
                     padding: 10px 20px;
@@ -260,28 +306,28 @@ const Events = () => {
                     width: 100%; /* Full width */
                     height: 100%; /* Full height */
                     overflow: auto; /* Enable scroll if needed */
-                    background-color: rgba(0, 0, 0, 0.7); /* Fallback background color */
+                    background-color: rgb(0,0,0); /* Fallback color */
+                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
                 }
 
                 .modal-content {
-                    background-color: #0d0d0d; /* Dark background */
+                    background-color: #fefefe;
                     margin: 15% auto; /* 15% from the top and centered */
                     padding: 20px;
                     border: 1px solid #888;
-                    border-radius: 8px;
                     width: 80%; /* Could be more or less, depending on screen size */
                 }
 
                 .close {
-                    color: #aaa; /* Close button color */
-                    float: right; /* Float to the right */
+                    color: #aaa;
+                    float: right;
                     font-size: 28px;
                     font-weight: bold;
                 }
 
                 .close:hover,
                 .close:focus {
-                    color: #00ffc6; /* Neon aqua on hover */
+                    color: black;
                     text-decoration: none;
                     cursor: pointer;
                 }
