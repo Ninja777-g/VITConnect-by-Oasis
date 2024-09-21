@@ -1,0 +1,140 @@
+/* Global Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0d0d; /* Dark background */
+  color: #e2e8f0; /* Light text */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #0d0d0d; /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #00ffc6; /* Neon aqua */
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #00ffc6; /* Neon aqua */
+  color: #0d0d0d; /* Dark button text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00a8ff; /* Neon blue on hover */
+}
+
+/* FAQ Section Styling */
+.faq-section {
+  background-color: #232526; /* Dark metallic */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  background-color: #00a8ff; /* Neon blue */
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #084a92; /* Darker blue on hover */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: #22223b; /* Slightly lighter background */
+  padding: 0 15px;
+  border-radius: 5px;
+}
+
+.faq-answer p {
+  padding: 15px;
+  margin: 0;
+  color: #f4f4f9; /* Light text */
+  font-size: 16px;
+}
+
+/* Question Form Styling */
+.question-form {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #1a1a2e; /* Consistent dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.question-form input, .question-form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #0f0f1f; /* Darker input background */
+  color: #e2e8f0; /* Light text */
+}
+
+.question-form button {
+  background-color: #00ffc6; /* Neon aqua */
+  color: #0d0d0d; /* Dark text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.question-form button:hover {
+  background-color: #00a8ff; /* Neon blue on hover */
+}
+
+.confirmation {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #00a3cc; /* Confirmation background */
+  color: #e2e8f0; /* Light text */
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .faq-question {
+    font-size: 16px;
+  }
+  
+  .faq-answer {
+    font-size: 14px;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
