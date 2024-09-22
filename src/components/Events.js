@@ -203,7 +203,7 @@ const Events = () => {
                 /* Global Styling */
                 body {
                     font-family: 'Poppins', sans-serif;
-                    background-color: #0d0d0d; /* Dark background */
+                    background-color: #1a1a1a; /* Dark background */
                     color: #e2e8f0; /* Light text */
                     margin: 0;
                     padding: 0;

@@ -3,41 +3,42 @@ import React, { useState } from 'react';
 function MessMenu() {
   const menus = {
     "Veg Menu": {
-      "Day 1": ["Breakfast - Veg Curry", "Lunch - Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 2": ["Breakfast - Paneer Butter Masala", "Lunch - Naan", "Snacks - Raita", "Dinner - Ice Cream"],
-      "Day 3": ["Breakfast - Dal Tadka", "Lunch - Jeera Rice", "Snacks - Papad", "Dinner - Ice Cream"],
-      "Day 4": ["Breakfast - Veg Biryani", "Lunch - Phulka", "Snacks - Dal Maharani", "Dinner - Ice Cream"],
-      "Day 5": ["Breakfast - Aloo Gobi", "Lunch - Chapati", "Snacks - Raita", "Dinner - Ice Cream"],
-      "Day 6": ["Breakfast - Palak Paneer", "Lunch - Jeera Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 7": ["Breakfast - Veg Pulao", "Lunch - Raita", "Snacks - Papad", "Dinner - Ice Cream"],
-      "Day 8": ["Breakfast - Matar Paneer", "Lunch - Phulka", "Snacks - Dal Tadka", "Dinner - Ice Cream"],
-      "Day 9": ["Breakfast - Veg Korma", "Lunch - Jeera Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 10": ["Breakfast - Veg Fried Rice", "Lunch - Manchurian", "Snacks - Soup", "Dinner - Ice Cream"]
+        "Day 1": ["Breakfast - Veg Curry, Pancakes, Hash Browns", "Lunch - Rice, Dal Fry, Veg Pizza", "Snacks - Salad, French Fries", "Dinner - Paneer Butter Masala, Garlic Bread, Ice Cream"],
+        "Day 2": ["Breakfast - Paneer Butter Masala, Toast with Avocado, Scrambled Eggs", "Lunch - Naan, Jeera Rice, Veg Pasta", "Snacks - Raita, Veg Sandwich", "Dinner - Veg Biryani, Phulka, Chocolate Mousse"],
+        "Day 3": ["Breakfast - Dal Tadka, Waffles, Masala Omelette", "Lunch - Jeera Rice, Mixed Veg Curry, Veg Burger", "Snacks - Papad, Nachos", "Dinner - Palak Paneer, Phulka, Ice Cream"],
+        "Day 4": ["Breakfast - Veg Biryani, Croissant, Smoothie", "Lunch - Phulka, Veg Fried Rice, Veg Lasagna", "Snacks - Dal Maharani, Cheese Sticks", "Dinner - Matar Paneer, Garlic Bread, Brownie"],
+        "Day 5": ["Breakfast - Aloo Gobi, Bagel with Cream Cheese, Pancakes", "Lunch - Chapati, Veg Pulao, Veg Grilled Sandwich", "Snacks - Raita, Chips & Salsa", "Dinner - Dal Tadka, Veg Wrap, Ice Cream"],
+        "Day 6": ["Breakfast - Palak Paneer, Cereal with Milk, Fruit Salad", "Lunch - Jeera Rice, Mixed Veg Curry, Veg Quiche", "Snacks - Salad, Veg Spring Rolls", "Dinner - Veg Biryani, Phulka, Cheesecake"],
+        "Day 7": ["Breakfast - Veg Pulao, Waffles, Veg Sausages", "Lunch - Raita, Jeera Rice, Veg Tacos", "Snacks - Papad, Veg Bruschetta", "Dinner - Paneer Butter Masala, Naan, Ice Cream"],
+        "Day 8": ["Breakfast - Matar Paneer, Toast with Peanut Butter, Smoothie", "Lunch - Phulka, Veg Fried Rice, Veg Burrito", "Snacks - Dal Tadka, Potato Wedges", "Dinner - Veg Pulao, Phulka, Apple Pie"],
+        "Day 9": ["Breakfast - Veg Korma, Cereal with Almond Milk, Hash Browns", "Lunch - Jeera Rice, Dal Fry, Veg Enchiladas", "Snacks - Salad, Veg Nuggets", "Dinner - Veg Biryani, Phulka, Ice Cream"],
+        "Day 10": ["Breakfast - Veg Fried Rice, Bagel with Cream Cheese, Scrambled Eggs", "Lunch - Manchurian, Rice, Veg Pizza", "Snacks - Soup, Veg Nachos", "Dinner - Palak Paneer, Garlic Bread, Chocolate Cake"]
     },
     "Non-Veg Menu": {
-      "Day 1": ["Breakfast - Chicken Curry", "Lunch - Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 2": ["Breakfast - Fish Fry", "Lunch - Naan", "Snacks - Soup", "Dinner - Ice Cream"],
-      "Day 3": ["Breakfast - Mutton Biryani", "Lunch - Raita", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 4": ["Breakfast - Chicken Korma", "Lunch - Chapati", "Snacks - Soup", "Dinner - Ice Cream"],
-      "Day 5": ["Breakfast - Fish Curry", "Lunch - Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 6": ["Breakfast - Mutton Curry", "Lunch - Naan", "Snacks - Raita", "Dinner - Ice Cream"],
-      "Day 7": ["Breakfast - Chicken Biryani", "Lunch - Mysore Pak", "Snacks - Raita", "Dinner - Ice Cream"],
-      "Day 8": ["Breakfast - Fish Fry", "Lunch - Chapati", "Snacks - Soup", "Dinner - Ice Cream"],
-      "Day 9": ["Breakfast - Mutton Korma", "Lunch - Rice", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 10": ["Breakfast - Chicken Fried Rice", "Lunch - Manchurian", "Snacks - Soup", "Dinner - Ice Cream"],
+        "Day 1": ["Breakfast - Chicken Curry, Scrambled Eggs, Toast", "Lunch - Rice, Butter Chicken, Garlic Naan", "Snacks - Salad, French Fries", "Dinner - Ice Cream, Chicken Tikka"],
+        "Day 2": ["Breakfast - Fish Fry, Omelette, Avocado Toast", "Lunch - Naan, Paneer Butter Masala, Chicken Korma", "Snacks - Soup, Veg Spring Rolls", "Dinner - Ice Cream, Grilled Salmon"],
+        "Day 3": ["Breakfast - Mutton Biryani, Masala Omelette, Paratha", "Lunch - Raita, Chicken Salad, Jeera Rice", "Snacks - Salad, Nachos", "Dinner - Ice Cream, Fish Curry"],
+        "Day 4": ["Breakfast - Chicken Korma, Bagel with Cream Cheese, Smoothie", "Lunch - Chapati, Mutton Rogan Josh, Mixed Veg Curry", "Snacks - Soup, Veg Pakora", "Dinner - Ice Cream, Garlic Chicken"],
+        "Day 5": ["Breakfast - Fish Curry, Pancakes, Fruit Salad", "Lunch - Rice, Tandoori Chicken, Dal Tadka", "Snacks - Salad, Veg Nuggets", "Dinner - Ice Cream, Butter Chicken"],
+        "Day 6": ["Breakfast - Mutton Curry, Toast with Jam, Cereal", "Lunch - Naan, Chicken Biryani, Raita", "Snacks - Veg Sandwich, Soup", "Dinner - Ice Cream, Chicken Shawarma"],
+        "Day 7": ["Breakfast - Chicken Biryani, Waffles, Chicken Sausages", "Lunch - Mysore Pak, Tandoori Roti, Chicken Tikka Masala", "Snacks - Raita, Papad", "Dinner - Ice Cream, Mutton Seekh Kebab"],
+        "Day 8": ["Breakfast - Fish Fry, Smoothie Bowl, Hash Browns", "Lunch - Chapati, Grilled Chicken, Veg Stir-Fry", "Snacks - Soup, Veg Samosa", "Dinner - Ice Cream, Fish Tacos"],
+        "Day 9": ["Breakfast - Mutton Korma, Cereal with Milk, Fruit Smoothie", "Lunch - Rice, Chicken Curry, Veg Biryani", "Snacks - Salad, Hummus and Pita", "Dinner - Ice Cream, Lamb Chops"],
+        "Day 10": ["Breakfast - Chicken Fried Rice, Omelette, Croissant", "Lunch - Manchurian, Grilled Fish, Naan", "Snacks - Soup, Cheese Sticks", "Dinner - Ice Cream, Mutton Biryani"]
+      ,
     },
     "Special Menu": {
-      "Day 1": ["Breakfast - Pasta", "Lunch - Garlic Bread", "Snacks - Caesar Salad", "Dinner - Ice Cream"],
-      "Day 2": ["Breakfast - Biryani", "Lunch - Raita", "Snacks - Dessert", "Dinner - Ice Cream"],
-      "Day 3": ["Breakfast - Pizza", "Lunch - Garlic Bread", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 4": ["Breakfast - Noodles", "Lunch - Manchurian", "Snacks - Soup", "Dinner - Ice Cream"],
-      "Day 5": ["Breakfast - Burger", "Lunch - Fries", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 6": ["Breakfast - Pulao", "Lunch - Raita", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 7": ["Breakfast - Fried Rice", "Lunch - Manchurian", "Snacks - Soup", "Dinner - Ice Cream"],
-      "Day 8": ["Breakfast - Pasta", "Lunch - Garlic Bread", "Snacks - Salad", "Dinner - Ice Cream"],
-      "Day 9": ["Breakfast - Biryani", "Lunch - Raita", "Snacks - Dessert", "Dinner - Ice Cream"],
-      "Day 10": ["Breakfast - Pizza", "Lunch - Garlic Bread", "Snacks - Salad", "Dinner - Ice Cream"],
-    }
+      "Day 1": ["Breakfast - Pasta, Scrambled Eggs, Fruit Salad", "Lunch - Garlic Bread, Chicken Alfredo, Caesar Salad", "Snacks - Caesar Salad, Veggie Sticks with Hummus", "Dinner - Ice Cream, Chocolate Cake"],
+      "Day 2": ["Breakfast - Biryani, Boiled Eggs, Yogurt", "Lunch - Raita, Paneer Tikka, Garlic Naan", "Snacks - Chocolate Mousse, Fresh Fruit", "Dinner - Ice Cream, Brownie Sundae"],
+      "Day 3": ["Breakfast - Pizza, Hash Browns, Fruit Smoothie", "Lunch - Garlic Bread, Veggie Pizza, Greek Salad", "Snacks - Salad, Mini Caprese Skewers", "Dinner - Ice Cream, Tiramisu"],
+      "Day 4": ["Breakfast - Noodles, Spring Rolls, Pineapple Chunks", "Lunch - Manchurian, Fried Rice, Sweet and Sour Soup", "Snacks - Tomato Soup, Breadsticks", "Dinner - Ice Cream, Cheesecake"],
+      "Day 5": ["Breakfast - Burger, Sweet Potato Fries, Fruit Salad", "Lunch - Fries, Chicken Nuggets, Coleslaw", "Snacks - Salad, Nachos with Salsa", "Dinner - Ice Cream, Fruit Tart"],
+      "Day 6": ["Breakfast - Pulao, Aloo Tikki, Yogurt", "Lunch - Raita, Chicken Curry, Mixed Veggies", "Snacks - Salad, Vegetable Soup", "Dinner - Ice Cream, Mocha Mousse"],
+      "Day 7": ["Breakfast - Fried Rice, Egg Rolls, Fresh Fruit", "Lunch - Manchurian, Steamed Buns, Hot and Sour Soup", "Snacks - Tomato Soup, Veggie Chips", "Dinner - Ice Cream, Apple Pie"],
+      "Day 8": ["Breakfast - Pasta, Frittata, Fruit Smoothie", "Lunch - Garlic Bread, Spinach Lasagna, Mixed Salad", "Snacks - Salad, Cheese Platter", "Dinner - Ice Cream, Lemon Sorbet"],
+      "Day 9": ["Breakfast - Biryani, Paneer Pakora, Raita", "Lunch - Raita, Vegetable Korma, Pulao", "Snacks - Chocolate Brownies, Fresh Fruit", "Dinner - Ice Cream, Vanilla Pudding"],
+      "Day 10": ["Breakfast - Pizza, Sausages, Fruit Salad", "Lunch - Garlic Bread, Beef Stroganoff, Caesar Salad", "Snacks - Salad, Creamy Mushroom Soup", "Dinner - Ice Cream, Tiramisu"]
+    }    
   };
 
   const [menuType, setMenuType] = useState('');

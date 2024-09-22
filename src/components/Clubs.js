@@ -44,11 +44,6 @@ const Clubs = () => {
     const closePopup = () => {
         setPopupVisible(false);
     };
-
-    useEffect(() => {
-        // Any additional initialization if needed
-    }, []);
-
     return (
         <div className="container">
             <h1 style={{ color: '#86C232' }}>Join a Club</h1>
@@ -56,16 +51,16 @@ const Clubs = () => {
 
             <form id="registrationForm">
                 <label htmlFor="name">Full Name:</label>
-                <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required className="input-field" />
 
                 <label htmlFor="regno">Registration No:</label>
-                <input type="text" id="regno" value={regno} onChange={(e) => setRegno(e.target.value)} required />
+                <input type="text" id="regno" value={regno} onChange={(e) => setRegno(e.target.value)} required className="input-field" />
 
                 <label htmlFor="email">Email Address:</label>
-                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="input-field" />
 
                 <label htmlFor="club">Select Your Club:</label>
-                <select id="club" value={club} onChange={handleClubChange} required>
+                <select id="club" value={club} onChange={handleClubChange} required className="input-field">
                     <option value="">-- Select a Club --</option>
                     {Object.keys(clubDescriptions).map((clubName) => (
                         <option key={clubName} value={clubName}>{clubName}</option>
@@ -131,7 +126,7 @@ const Clubs = () => {
                         color: #ccc;
                         font-size: 0.9rem;
                     }
-                    input[type="text"], input[type="email"], select {
+                    .input-field {
                         width: 100%; /* Make all fields equal width */
                         padding: 12px; /* Consistent padding */
                         margin-top: 5px;
@@ -140,7 +135,7 @@ const Clubs = () => {
                         background-color: #474B4F; /* Darker background */
                         color: #e2e8f0; /* Light text */
                     }
-                    input[type="text"]:focus, input[type="email"]:focus, select:focus {
+                    .input-field:focus {
                         border-color: #00ffc6; /* Neon aqua */
                         outline: none;
                     }

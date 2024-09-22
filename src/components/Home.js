@@ -1,6 +1,10 @@
 import React from 'react';
 
 function Home() {
+  const handleExploreClick = () => {
+    window.location.href = 'http://localhost:3000/campus-map';
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.introduction}>
@@ -8,7 +12,7 @@ function Home() {
         <p style={styles.introText}>
           VIT Connect is designed to streamline your college experience by providing easy access to essential services like maps, mess menus, shop listings, FAQs, and events. Our platform serves as a one-stop solution for all your campus needs, ensuring that you can find the information you need quickly and easily. With features tailored to enhance your academic journey and social interactions, we aim to foster a vibrant campus community where every student can thrive. Join us as we enhance your journey at VIT!
         </p>
-        <button style={styles.ctaButton}>Explore Now</button>
+        <button style={styles.ctaButton} onClick={handleExploreClick}>Explore Now</button>
       </div>
 
       <div style={styles.hashtag}>#ConnectToVIT</div>
@@ -69,10 +73,6 @@ const styles = {
     transition: 'background 0.3s ease, transform 0.3s ease',
     boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
     fontWeight: '600',
-  },
-  ctaButtonHover: {
-    backgroundColor: '#61892F', // Darker green on hover
-    transform: 'scale(1.05)',
   },
   hashtag: {
     marginTop: '50px',

@@ -91,11 +91,11 @@ const CampusMap = () => {
 
       <style>
         {`
-          body {
-            font-family: 'Arial', sans-serif;
-            background-color: #6B6E70; /* Grey background */
+          .body {
+            background-color: #1a1a1a; /* Dark Grey */
+            color: #f4f4f9; /* Light text color */
             margin: 0;
-            padding: 20px;
+            font-family: 'Poppins', sans-serif;
           }
           .container {
             max-width: 1200px;

@@ -41,13 +41,32 @@ function Forum() {
     setFaqItems(updatedItems);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const newQuestion = { question, answer: details || "No details provided.", isOpen: false };
-    setFaqItems((prevItems) => [...prevItems, newQuestion]);
-    setConfirmationVisible(true);
-    setQuestion('');
-    setDetails('');
+    const formData = new FormData(event.target);
+    
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwhHBu4mUZ2EThe3aaWidE5dJQKrFZKlLV84Q5Emz97S0BOQUnp0ZsSFFu-4Syq0kfK/exec", {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const result = await response.json();
+      if (result.result === "success") {
+        setConfirmationVisible(true);
+        setQuestion('');
+        setDetails('');
+        
+        // Hide the confirmation message after 5 seconds
+        setTimeout(() => {
+          setConfirmationVisible(false);
+        }, 5000);
+      } else {
+        console.error("Submission failed", result);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
 
   useEffect(() => {
@@ -83,29 +102,35 @@ function Forum() {
         ))}
       </div>
 
-      <div className="question-form">
-        <h2 style={{ color: '#86C232' }}>Submit Your Question</h2> {/* Title color */}
+      {/* Ask a Question Form */}
+      <div className="form-container">
+        <h3 style={{ color: '#86C232' }}>Ask a Question</h3>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder="Enter your question"
-            required
-            style={{ color: 'black' }} // Font color for question input
-          />
-          <textarea
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-            placeholder="Provide more details (optional)"
-            rows="4"
-            style={{ color: 'black' }} // Font color for details textarea
-          ></textarea>
-          <button type="submit" style={{ backgroundColor: 'black', color: '#00ffc6' }}>Submit Question</button>
+          {/* Name Input */}
+          <div className="form-group">
+            <label htmlFor="userName">Your Name:</label>
+            <input name="Name" type="text" placeholder="Name" required style={{ color: 'black' }} />
+          </div>
+
+          {/* Registration Number Input */}
+          <div className="form-group">
+            <label htmlFor="regNumber">Registration Number:</label>
+            <input name="Reg. No" type="text" placeholder="Reg.No" required style={{ color: 'black' }} />
+          </div>
+
+          {/* Problem Input */}
+          <div className="form-group">
+            <label htmlFor="userProblem">Describe Your Problem:</label>
+            <input name="Question" type="text" placeholder="Question" required style={{ color: 'black' }} />
+          </div>
+
+          {/* Submit Button */}
+          <button type="submit" className="submit-btn" style={{ backgroundColor: 'black', color: '#00ffc6' }}>Submit</button>
         </form>
 
+        {/* Thank You Message */}
         {confirmationVisible && (
-          <div className="confirmation" ref={confirmationRef}>
+          <div className="thank-you" ref={confirmationRef}>
             Thank you for submitting your question! We will review it and update the FAQ accordingly.
           </div>
         )}
@@ -162,14 +187,17 @@ function Forum() {
             color: #e2e8f0; /* Light text */
             font-size: 16px;
           }
-          .question-form {
+          .form-container {
             margin-top: 40px;
             padding: 20px;
             background-color: #1a1a2e; /* Consistent dark background */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
           }
-          .question-form input, .question-form textarea {
+          .form-group {
+            margin-bottom: 15px;
+          }
+          .form-group input {
             width: calc(100% - 20px);
             padding: 10px;
             margin-bottom: 10px;
@@ -179,7 +207,7 @@ function Forum() {
             background-color: #474B4F; /* Input background */
             color: #e2e8f0; /* Light text */
           }
-          .question-form button {
+          .submit-btn {
             background-color: black; /* Changed to black */
             color: #00ffc6; /* Aqua color for text */
             border: none;
@@ -189,10 +217,10 @@ function Forum() {
             cursor: pointer;
             transition: background-color 0.3s ease;
           }
-          .question-form button:hover {
+          .submit-btn:hover {
             background-color: #00a8ff; /* Neon blue on hover */
           }
-          .confirmation {
+          .thank-you {
             margin-top: 20px;
             padding: 10px;
             background-color: #00a3cc; /* Confirmation background */
